@@ -1,6 +1,15 @@
-"""Module for quick printing in colour, on Unix only."""
+"""Module for quick printing in colour (works on *nix only).
 
+Probably you'd want to put a copy of this file in your personal user site
+directory (you can get the directory by running 'python -m site --user-site').
+That way you can always import it without messing with sys.path.
+"""
+
+# Template
 END = '\033[0m'
+TEMPLATE = "%%s%%s%s" % END
+
+# Colours
 BLACK = '\033[30m'
 BRIGHT_BLACK = '\033[90m'
 RED = '\033[31m'
@@ -17,8 +26,8 @@ CYAN = '\033[36m'
 BRIGHT_CYAN = '\033[96m'
 WHITE = '\033[37m'
 BRIGHT_WHITE = '\033[97m'
-TEMPLATE = "%%s%%s%s" % END
 
+# Print methods
 def black(text):
     """Print in black."""
     print TEMPLATE % (BLACK, text)
@@ -76,7 +85,7 @@ def bmagenta(text):
     print TEMPLATE % (BRIGHT_MAGENTA, text)
 
 def white(text):
-    """Print in white (light gray)."""
+    """Print in white."""
     print TEMPLATE % (WHITE, text)
 
 def bwhite(text):
